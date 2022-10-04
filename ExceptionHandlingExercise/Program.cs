@@ -17,13 +17,20 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
+            char[] arr = {'1', '4', '5', 'p', 'y', '7', 'w', '3', '9' };
+            var numberList = new List<int>();
+            string str;
 
+            //foreach (var character in arr)   extra I think. Not sure.
+            //{
+            //    int.Parse(arr);
+            //}
 
 
             //TODO START HERE:
             
             // Make a foreach loop to iterate through your character array
-            
+
                 // Now create a try catch
                 
                 
@@ -36,13 +43,31 @@ namespace ExceptionHandlingExercise
                 // in the scope of your catch you can use the following, 
                 
                     //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
-                
-            
+
+            foreach (char character in arr)
+            {
+                try
+                {
+                    str = character.ToString();
+                    int num = int.Parse(str);
+                    numberList.Add(num);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Unable to Parse '{character}'");
+                }
+            }
 
             //foreach (var num in numbers)
             //{
             //    Console.WriteLine(num);
             //}
+
+
+            foreach (var num in numberList)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
